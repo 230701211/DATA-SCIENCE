@@ -1,1 +1,70 @@
-
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyOE5gTCEwF/VmHVyP+PFP4g",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/230701211/DATA-SCIENCE/blob/main/EXPERIMENT%201.D\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "pwDBawpXD2Xj",
+        "outputId": "52cbf897-1e3b-458c-c2f3-5472fe8a0252"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Original data:  b'i am studying in rec'\n",
+            "Encrypted data:  b'gAAAAABmzJIIGpQKcG1UwQcWG_5_kuLdQTdp5dXhX3lPm8H300-vOOLTOPGijxMAc6jFlgENNjJQDxLW7W2gVzreajn6jxnqZIYgbyGn3rooowdBkw8VStY='\n",
+            "Decrypted data:  b'i am studying in rec'\n"
+          ]
+        }
+      ],
+      "source": [
+        "from cryptography.fernet import Fernet\n",
+        "key=Fernet.generate_key()\n",
+        "f=Fernet(key)\n",
+        "token=f.encrypt(b\"i am studying in rec\")\n",
+        "token\n",
+        "b'...'\n",
+        "f.decrypt(token)\n",
+        "b'i am studying in rec'\n",
+        "key=Fernet.generate_key()\n",
+        "cipher_suite=Fernet(key)\n",
+        "plain_text=b'i am studying in rec'\n",
+        "cipher_text=cipher_suite.encrypt(plain_text)\n",
+        "decrypted_text=cipher_suite.decrypt(cipher_text)\n",
+        "print(\"Original data: \",plain_text)\n",
+        "print(\"Encrypted data: \",cipher_text)\n",
+        "print(\"Decrypted data: \",decrypted_text)\n"
+      ]
+    }
+  ]
+}
